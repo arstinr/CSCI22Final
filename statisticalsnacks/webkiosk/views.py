@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse('<p>Welcome to Statistical Snacks webkiosk!</p>')
+    return render(request, "webkiosk/base_template.html")
