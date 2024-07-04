@@ -18,11 +18,8 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path, include
 
-def index(request):
-    return HttpResponse('<p>Hello, World!</p>')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", index),
-    path("webkiosk/", include("webkiosk.urls"))
+    path("webkiosk/", include("webkiosk.urls")),
 ]
