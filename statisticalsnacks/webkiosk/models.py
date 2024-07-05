@@ -4,14 +4,12 @@ from django.db import models
 class Customer(models.Model):
     firstname = models.CharField(max_length=20)
     lastname = models.CharField(max_length=20)
-    address = models.CharField(max_length=100)
-    city = models.CharField(max_length=20)
+    date_joined = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f'''CUSTOMER #{self.id}
-NAME: {self.firstname}
-ADDRESS: {self.address}
-CITY: {self.city}'''
+NAME: {self.firstname} {self.lastname}
+DATE JOINED: {self.date_joined}'''
     
 class Address(models.Model):
     street = models.CharField(max_length=50)
