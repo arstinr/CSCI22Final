@@ -12,3 +12,11 @@ class Customer(models.Model):
 NAME: {self.firstname}
 ADDRESS: {self.address}
 CITY: {self.city}'''
+    
+class Address(models.Model):
+    street = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'CUSTOMER: {self.customer.firstname} {self.customer.lastname}, ADDRESS: {self.street} {self.city}'
