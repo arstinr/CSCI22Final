@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Customer, Address
 from .forms import AddCustomerForm
@@ -20,6 +20,7 @@ def addcustomer(request):
         acf = AddCustomerForm(request.POST)
         if acf.is_valid():
             acf.save()
+            return redirect('webkiosk:customer-list')
     
     context = {'form': acf}
     return render(request, 'webkiosk/customer_form.html', context)
