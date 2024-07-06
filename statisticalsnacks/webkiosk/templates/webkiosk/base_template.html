@@ -6,8 +6,15 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'styles.css'%}">
     </header>
+
     <body>
         <h1>Statistical Snacks Webkiosk</h1>
         <p>yummy yummy</p>
+
+        {% block pagetitle %}
+        {% endblock %}
+        
+        {% block maincontent %}
+        {% endblock %}
     </body>
 </html>
