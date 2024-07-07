@@ -27,12 +27,12 @@ def addcustomer(request):
     return render(request, 'webkiosk/customer_form.html', context)
 
 def listcustomerdetails(request, pk):
-    c = Customer.objects.get(id=pk)
+    c = get_object_or_404(Customer, id=pk)
     context = {'customer': c}
     return render(request, 'webkiosk/customer_detail.html', context)
 
 def editcustomerdetails(request, pk):
-    customer = Customer.objects.get(id=pk)
+    customer = get_object_or_404(Customer, id=pk)
     if request.method == 'GET':
         form = AddCustomerForm(instance=customer)
     elif request.method == 'POST':
@@ -44,7 +44,7 @@ def editcustomerdetails(request, pk):
     return render(request, 'webkiosk/customer_form.html', context)
 
 def deletecustomer(request, pk):
-    c = Customer.objects.get(id=pk)
+    c = get_object_or_404(Customer, id=pk)
     if request.method == 'GET':
         context = { 'customer': c}
         return render(request, 'webkiosk/customer_delete.html',context)
