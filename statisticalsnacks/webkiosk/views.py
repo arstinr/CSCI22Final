@@ -74,7 +74,7 @@ def addfood(request):
         aff = AddFoodForm(request.POST)
         if aff.is_valid():
             aff.save()
-            return redirect('webkiosk:customer-list')
+            return redirect('webkiosk:food-list')
     
     context = {'form': aff}
     return render(request, 'webkiosk/food_form.html', context)

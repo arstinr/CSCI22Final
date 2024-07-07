@@ -9,10 +9,10 @@ class AddCustomerForm(ModelForm):
 class AddAddressForm(ModelForm):
     class Meta:
         model = Address
-        fields = {'street', 'city', 'customer'}
+        fields = ['street', 'city', 'customer']
         widgets = { 'customer': HiddenInput()}
 
 class AddFoodForm(ModelForm):
     class Meta:
         model = Food
-        fields = {'name','description','price'}
+        fields = ['name','description','price']
