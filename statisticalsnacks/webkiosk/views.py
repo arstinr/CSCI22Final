@@ -60,6 +60,7 @@ def addaddress(request, customer_id):
         form = AddAddressForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('webkiosk:customer-detail',pk=customer_id)
     
     context = {'form':form}
     return render(request, 'webkiosk/address_form.html', context)
