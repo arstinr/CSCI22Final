@@ -45,5 +45,9 @@ def editcustomerdetails(request, pk):
 
 def deletecustomer(request, pk):
     c = Customer.objects.get(id=pk)
+    if request.method == 'GET':
+        context = { 'customer': c}
+        return render(request, 'webkiosk/customer_delete.html',context)
+
     c.delete()
     return redirect('webkiosk:customer-list')
