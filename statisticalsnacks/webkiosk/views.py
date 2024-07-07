@@ -29,3 +29,14 @@ def listcustomerdetails(request, pk):
     c = Customer.objects.get(id=pk)
     context = {'customer': c}
     return render(request, 'webkiosk/customer_detail.html', context)
+
+def editcustomerdetails(request, pk):
+    customer = Customer.objects.get(id=pk)
+    if request.method == 'GET':
+        form = AddCustomerForm(instance=customer)
+    elif request.method == 'POST':
+        form = AddCustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+    context = {'form':form}
+    return render(request, 'webkiosk/customer_form.html', context)
