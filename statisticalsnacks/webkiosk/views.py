@@ -42,3 +42,8 @@ def editcustomerdetails(request, pk):
             messages.success(request,'Customer record updated succesfully!')
     context = {'form':form,  'actionname': 'Edit Customer'}
     return render(request, 'webkiosk/customer_form.html', context)
+
+def deletecustomer(request, pk):
+    c = Customer.objects.get(id=pk)
+    c.delete()
+    return redirect('webkiosk:customer-list')
