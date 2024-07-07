@@ -64,3 +64,15 @@ def addaddress(request, customer_id):
     
     context = {'form':form}
     return render(request, 'webkiosk/address_form.html', context)
+
+##Food
+#View for adding new food records
+#View for viewing complete details of a food record
+#View for editing details of food record
+#View for deleting a food record
+
+##View All Food Records
+#Create page that lists all food records in db
+#For attributes, only show name and price
+#Each item in list should have links: 
+#   Show more info about record, edit, delete
