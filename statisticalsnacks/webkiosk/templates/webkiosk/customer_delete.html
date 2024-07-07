@@ -4,11 +4,13 @@
 
 {% block maincontent %}
 <h2>Delete Customer?</h2>
-    {% csrf_token %}
-    <p>Are you sure you want to delete Customer 
-        <b># {{ customer.id }} {{customer.firstname}} {{customer.lastname}}</b>?
-    </p>
-    <a href="{% url 'webkiosk:customer-list' %}">Cancel</a>
-    <input type="submit" value="Yes">
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete Customer 
+            <b># {{ customer.id }} {{customer.firstname}} {{customer.lastname}}</b>?
+        </p>
+        <a href="{% url 'webkiosk:customer-list' %}">Cancel</a>
+        <input type="submit" value="Yes">
+    </form>
 
 {% endblock %}

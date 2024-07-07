@@ -48,6 +48,6 @@ def deletecustomer(request, pk):
     if request.method == 'GET':
         context = { 'customer': c}
         return render(request, 'webkiosk/customer_delete.html',context)
-
-    c.delete()
-    return redirect('webkiosk:customer-list')
+    elif request.method == 'POST':
+        c.delete()
+        return redirect('webkiosk:customer-list')
