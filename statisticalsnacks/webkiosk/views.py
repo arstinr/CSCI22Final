@@ -24,3 +24,8 @@ def addcustomer(request):
     
     context = {'form': acf}
     return render(request, 'webkiosk/customer_form.html', context)
+
+def listcustomerdetails(request, pk):
+    c = Customer.objects.get(id=pk)
+    context = {'customer': c}
+    return render(request, 'webkiosk/customer_detail.html', context)
