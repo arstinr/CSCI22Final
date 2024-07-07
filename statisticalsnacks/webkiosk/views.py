@@ -61,4 +61,5 @@ def addaddress(request, customer_id):
         if form.is_valid():
             form.save()
     
-    
+    context = {'form':form}
+    return render(request, 'webkiosk/address_form.html', context)
