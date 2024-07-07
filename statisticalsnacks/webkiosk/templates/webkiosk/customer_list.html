@@ -6,7 +6,7 @@
 <h2>Customers</h2>
 <ul>
     {% for customer in customerlist %}
-        <li>#{{customer.id}} - {{ customer.firstname}} {{customer.lastname}} | <a href="{% url 'webkiosk:customer-details' customer.id %}">More Info</a></li>
+        <li>#{{customer.id}} - {{ customer.firstname}} {{customer.lastname}} | <a href="{% url 'webkiosk:customer-details' customer.id %}">More Info</a> | <a href="{% url 'webkiosk:customer-edit' customer.id %}">Edit Name</a></li>
     {% endfor %}
 </ul>
 
