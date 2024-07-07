@@ -93,3 +93,33 @@ def listfooddetails(request, pk):
 #For attributes, only show name and price
 #Each item in list should have links: 
 #   Show more info about record, edit, delete
+
+#-------------------------------------------------------------------------#
+
+##ORDER
+#View for adding new Order
+#View for viewing complete details of an order record
+#   should include: list of all items and total price of each (qty * price)
+#   total price of entire order should be shown
+
+#View for editing details of an order
+#View for deleting order
+
+##ORDERITEM
+# must be integrated with adding of Order record (extends order?)
+# contains: drop-down to select user the order is for
+# must be able to add multiple order items to a single order & specify qty for each item
+# user must be able to delete existing items from an order
+# when viewing details of order, should list all order items from an order
+
+##View all orders
+#Create page that lists all order records in db
+# for attributes show only: order id, customer full name, date n time of order
+# each item in list should have links: more info abt record, edit, delete
+
+##Modify customer details to include:
+#   - list of all orders customer has made(order id, date n time)
+#       - should have link to view order details
+#   - each customer details page should have "Add Order" button
+#       - leads to add order form where selected customer is automatically set as customer for that order
+
