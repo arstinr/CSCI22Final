@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Customer, Address
+from .models import Customer, Address, Food
 from .forms import AddCustomerForm, AddAddressForm, AddFoodForm
 
 # Create your views here.
@@ -80,6 +80,11 @@ def addfood(request):
     return render(request, 'webkiosk/food_form.html', context)
 
 #View for viewing complete details of a food record/ def listfooddetails
+def listfooddetails(request, pk):
+    f = get_object_or_404(Food, id=pk)
+    context = {'food': f}
+    return render(request, 'webkiosk/food_detail.html', context)
+
 #View for editing details of food record/ def editfooddetails
 #View for deleting a food record/ def deletefood
 
