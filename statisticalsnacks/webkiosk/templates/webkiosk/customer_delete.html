@@ -1,0 +1,14 @@
+{% extends 'webkiosk/base_template.html' %}
+
+{% block pagetitle %} Delete Customer {{customer.id}} {% endblock %}
+
+{% block maincontent %}
+<h2>Delete Customer?</h2>
+    {% csrf_token %}
+    <p>Are you sure you want to delete Customer 
+        <b># {{ customer.id }} {{customer.firstname}} {{customer.lastname}}</b>?
+    </p>
+    <a href="{% url 'webkiosk:customer-list' customer.id %}">Cancel</a>
+    <input type="submit" value="Yes">
+
+{% endblock %}
