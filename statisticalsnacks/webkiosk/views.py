@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Customer, Address
-from .forms import AddCustomerForm, AddAddressForm
+from .forms import AddCustomerForm, AddAddressForm, AddFoodForm
 
 # Create your views here.
 
