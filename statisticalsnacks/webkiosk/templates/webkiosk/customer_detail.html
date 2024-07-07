@@ -10,4 +10,20 @@
     <li>Date Joined: {{ customer.date_joined }}</li>
 </ul>
 
+{% if customer.address_set.exists %}
+
+<h3>Addresses</h3>
+
+<ul>
+    {% for address in customer.address_set.all %}
+        <li>{{ address.street }} {{ address.city }}</li>
+    {% endfor %}
+</ul>
+
+{% else %}
+
+<p>No addresses found for this customer.</p>\
+
+{% endif %}
+
 {% endblock %}
