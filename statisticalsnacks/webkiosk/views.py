@@ -51,3 +51,8 @@ def deletecustomer(request, pk):
     elif request.method == 'POST':
         c.delete()
         return redirect('webkiosk:customer-list')
+    
+def addaddress(request, customer_id):
+    if request.method == 'GET':
+        customer = get_object_or_404(Customer, id=customer_id)
+        form = AddAddressForm(initial={'customer': customer})
