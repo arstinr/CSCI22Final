@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path, include
 from django.shortcuts import render
+from django.conf.urls import handler404
+from django.views.defaults import page_not_found
+
 
 def home(request):
     return HttpResponse("<p>Ugh</p>")
