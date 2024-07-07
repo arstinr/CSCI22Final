@@ -18,3 +18,12 @@ class Address(models.Model):
 
     def __str__(self):
         return f'CUSTOMER: {self.customer.firstname} {self.customer.lastname}, ADDRESS: {self.street} {self.city}'
+
+class Food(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=200)
+    price = models.DecimalField(max_length=8)
+
+    def __str__(self):
+        return f'''{self.name}: {self.description}
+Price: Php {self.price}'''
