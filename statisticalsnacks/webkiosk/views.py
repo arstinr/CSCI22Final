@@ -67,12 +67,14 @@ def addaddress(request, customer_id):
 
 ##Food
 #View for adding new food records
-#View for viewing complete details of a food record
-#View for editing details of food record
-#View for deleting a food record
+
+
+#View for viewing complete details of a food record/ def listfooddetails
+#View for editing details of food record/ def editfooddetails
+#View for deleting a food record/ def deletefood
 
 ##View All Food Records
-#Create page that lists all food records in db
+#Create page that lists all food records in db / listfood
 #For attributes, only show name and price
 #Each item in list should have links: 
 #   Show more info about record, edit, delete
