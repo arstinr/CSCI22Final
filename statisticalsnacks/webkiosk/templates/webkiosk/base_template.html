@@ -11,6 +11,13 @@
         <h1>Statistical Snacks Webkiosk</h1>
         <p>yummy yummy</p>
 
+        <nav>
+            <ul>
+                <li><a href="{% url 'webkiosk:customer-list' %}">Customers</a></li>
+                <li><a href="{% url 'webkiosk:customer-add' %}">Add Customer</a></li>
+            </ul>
+        </nav>
+
         {% block pagetitle %}
         {% endblock %}
         
