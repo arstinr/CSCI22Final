@@ -27,3 +27,12 @@ class Food(models.Model):
     def __str__(self):
         return f'''{self.name}: {self.description}
 Price: Php {self.price}'''
+    
+class OrderItem(models.Model):
+    quantity = models.IntegerField(max_length=3)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    food = models.ForeignKey(Food, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'''Order item:{self.food.name}
+Quantity: {self.quantity}'''
