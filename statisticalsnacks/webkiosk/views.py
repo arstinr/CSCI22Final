@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
 from .models import Customer, Address
 from .forms import AddCustomerForm
 
@@ -22,7 +23,7 @@ def addcustomer(request):
             acf.save()
             return redirect('webkiosk:customer-list')
     
-    context = {'form': acf}
+    context = {'form': acf, 'actionname': 'Add Customer'}
     return render(request, 'webkiosk/customer_form.html', context)
 
 def listcustomerdetails(request, pk):
@@ -38,5 +39,6 @@ def editcustomerdetails(request, pk):
         form = AddCustomerForm(request.POST, instance=customer)
         if form.is_valid():
             form.save()
-    context = {'form':form}
+            messages.success(request,'Customer record updated succesfully!')
+    context = {'form':form,  'actionname': 'Edit Customer'}
     return render(request, 'webkiosk/customer_form.html', context)

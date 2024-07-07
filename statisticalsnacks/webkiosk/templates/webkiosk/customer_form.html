@@ -3,12 +3,18 @@
 {% block pagetitle %}Customer Form{% endblock %}
 
 {% block maincontent %}
-<h2>Customer Form</h2>
+<h2>{{ actionname }} Form</h2>
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_ul }}
     <input type="submit" value="Submit">
 </form>
+
+<ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
