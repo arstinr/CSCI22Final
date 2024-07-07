@@ -56,3 +56,9 @@ def addaddress(request, customer_id):
     if request.method == 'GET':
         customer = get_object_or_404(Customer, id=customer_id)
         form = AddAddressForm(initial={'customer': customer})
+    elif request.method == 'POST':
+        form = AddAddressForm(request.POST)
+        if form.is_valid():
+            form.save()
+    
+    
