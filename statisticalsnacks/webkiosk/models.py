@@ -27,7 +27,20 @@ class Food(models.Model):
     def __str__(self):
         return f'''{self.name}: {self.description}
 Price: Php {self.price}'''
-    
+
+class Order(models.Model):
+    CHOICES = [
+        ('Cash','Cash'),
+        ('Card','Card'),
+        ('Digitalwallet','Digital Wallet'),
+    ]
+    orderdatetime = models.DateTimeField(auto_now_add=True)
+    paymentmode = models.CharField(max_length=15, choices=CHOICES)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'''Ordered: {self.orderdatetime}
+Payment Method: {self.paymentmode}'''
 class OrderItem(models.Model):
     quantity = models.IntegerField(max_length=3)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
@@ -36,3 +49,4 @@ class OrderItem(models.Model):
     def __str__(self):
         return f'''Order item:{self.food.name}
 Quantity: {self.quantity}'''
+    
