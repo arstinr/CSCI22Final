@@ -67,7 +67,17 @@ def addaddress(request, customer_id):
 
 ##Food
 #View for adding new food records
-
+def addfood(request):
+    if request.method == 'GET':
+        aff = AddFoodForm()
+    elif request.method == 'POST':
+        aff = AddFoodForm(request.POST)
+        if aff.is_valid():
+            aff.save()
+            return redirect('webkiosk:customer-list')
+    
+    context = {'form': aff}
+    return render(request, 'webkiosk/food_form.html', context)
 
 #View for viewing complete details of a food record/ def listfooddetails
 #View for editing details of food record/ def editfooddetails
