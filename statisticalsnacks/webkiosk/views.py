@@ -76,7 +76,7 @@ def addfood(request):
             aff.save()
             return redirect('webkiosk:food-list')
     
-    context = {'form': aff, 'actionname': 'Edit Food'}
+    context = {'form': aff, 'actionname': 'Add Food'}
     return render(request, 'webkiosk/food_form.html', context)
 
 #View for viewing complete details of a food record/ def listfooddetails
