@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Customer, Address, Food
+from .models import Customer, Address, Food, Order, OrderItem
 from .forms import AddCustomerForm, AddAddressForm, AddFoodForm, AddOrderForm, AddOrderItemForm
 
 # Create your views here.
@@ -140,9 +140,15 @@ def addorder(request, customer_id):
 #View for viewing complete details of an order record
 #   should include: list of all items and total price of each (qty * price)
 #   total price of entire order should be shown
+def listorderdetails(request, pk):
+    o = get_object_or_404(Order, id=pk)
+    context = {'order': o}
+    return render(request, 'webkiosk/order_detail.html', context)
 
 #View for editing details of an order
 #View for deleting order
+
+
 
 ##ORDERITEM
 # must be integrated with adding of Order record (extends order?)
