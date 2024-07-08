@@ -8,6 +8,12 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_ul }}
+
+    {% block %}
+
+
+
+
     <input type="submit" value="Submit">
 </form>
 
