@@ -76,7 +76,7 @@ def addfood(request):
             aff.save()
             return redirect('webkiosk:food-list')
     
-    context = {'form': aff}
+    context = {'form': aff, 'actionname': 'Edit Food'}
     return render(request, 'webkiosk/food_form.html', context)
 
 #View for viewing complete details of a food record/ def listfooddetails
@@ -86,6 +86,18 @@ def listfooddetails(request, pk):
     return render(request, 'webkiosk/food_detail.html', context)
 
 #View for editing details of food record/ def editfooddetails
+def editfooddetails(request, pk):
+    food = get_object_or_404(Food, id=pk)
+    if request.method == 'GET':
+        form = AddFoodForm(instance=food)
+    elif request.method == 'POST':
+        form = AddFoodForm(request.POST, instance=food)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Food record updated succesfully!')
+    context = {'form':form,  'actionname': 'Edit Food'}
+    return render(request, 'webkiosk/food_form.html', context)
+
 #View for deleting a food record/ def deletefood
 
 ##View All Food Records
