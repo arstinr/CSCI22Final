@@ -17,4 +17,7 @@ urlpatterns = [
     path('food/<int:pk>/edit/', views.editfooddetails, name='food-edit'),
     path('food/<int:pk>/delete/', views.deletefood, name="food-delete"),
     path('foods/', views.listfood, name='food-list'),
+
+    path('order/new/', views.addorder, name='order-add'),
+    
 ]
