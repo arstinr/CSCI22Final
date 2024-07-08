@@ -101,6 +101,14 @@ def editfooddetails(request, pk):
     return render(request, 'webkiosk/food_form.html', context)
 
 #View for deleting a food record/ def deletefood
+def deletefood(request, pk):
+    f = get_object_or_404(Customer, id=pk)
+    if request.method == 'GET':
+        context = { 'food': f}
+        return render(request, 'webkiosk/food_delete.html',context)
+    elif request.method == 'POST':
+        f.delete()
+        return redirect('webkiosk:food-list')
 
 ##View All Food Records
 #Create page that lists all food records in db / listfood
