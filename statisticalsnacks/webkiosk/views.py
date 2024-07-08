@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Customer, Address, Food
-from .forms import AddCustomerForm, AddAddressForm, AddFoodForm
+from .forms import AddCustomerForm, AddAddressForm, AddFoodForm, AddOrderForm, AddOrderItemForm
 
 # Create your views here.
 
@@ -124,6 +124,19 @@ def listfood(request):
 
 ##ORDER
 #View for adding new Order
+def addorder(request, customer_id):
+    if request.method == 'GET':
+        customer = get_object_or_404(Customer, id=customer_id)
+        form = AddOrderForm(initial={'customer': customer})
+    elif request.method == 'POST':
+        form = AddOrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('webkiosk:order-details',pk=customer_id)
+    
+    context = {'form':form}
+    return render(request, 'webkiosk/order_form.html', context)
+
 #View for viewing complete details of an order record
 #   should include: list of all items and total price of each (qty * price)
 #   total price of entire order should be shown
