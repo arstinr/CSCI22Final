@@ -1,5 +1,5 @@
 from django.forms import ModelForm, HiddenInput
-from .models import Customer, Address, Food
+from .models import Customer, Address, Food, Order, OrderItem
 
 class AddCustomerForm(ModelForm):
     class Meta:
@@ -16,3 +16,9 @@ class AddFoodForm(ModelForm):
     class Meta:
         model = Food
         fields = ['name','description','price']
+
+class AddOrderForm(ModelForm):
+    class Meta:
+        model = Order
+        fields = ['orderdatetime', 'paymentmode', 'customer']
+        widgets = { 'customer': HiddenInput()}
