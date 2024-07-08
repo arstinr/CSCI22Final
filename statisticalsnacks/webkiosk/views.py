@@ -124,7 +124,20 @@ def listfood(request):
 
 ##ORDER
 #View for adding new Order
-def addorder(request, customer_id):
+def addorder(request):
+    if request.method == 'GET':
+        aof = AddOrderForm()
+    elif request.method == 'POST':
+        aof = AddOrderForm(request.POST)
+        if aof.is_valid():
+            aof.save()
+            return redirect('webkiosk:add-order')
+    
+    context = {'form': aof, 'actionname': 'Add Order'}
+    return render(request, 'webkiosk/order_form.html', context)
+
+##FOR CUSTOMERVIEW TO ADD ORDER
+def addordertocustomer(request, customer_id):
     if request.method == 'GET':
         customer = get_object_or_404(Customer, id=customer_id)
         form = AddOrderForm(initial={'customer': customer})
@@ -134,7 +147,7 @@ def addorder(request, customer_id):
             form.save()
             return redirect('webkiosk:order-details',pk=customer_id)
     
-    context = {'form':form}
+    context = {'form':form, 'actionname': 'Add Order to Customer'}
     return render(request, 'webkiosk/order_form.html', context)
 
 #View for viewing complete details of an order record
