@@ -115,6 +115,10 @@ def deletefood(request, pk):
 #For attributes, only show name and price
 #Each item in list should have links: 
 #   Show more info about record, edit, delete
+def listfood(request):
+    foodlist = Food.objects.all()
+    context = {'foodlist': foodlist}
+    return render(request, "webkiosk/food_list.html", context)
 
 #-------------------------------------------------------------------------#
 
