@@ -1,0 +1,14 @@
+{% extends 'webkiosk/base_template.html' %}
+
+{% block pagetitle %} {{ order.id }} {% endblock %}
+
+{% block maincontent %}
+<h2> Order Details</h2>
+
+<ul>
+    <li>Order Num: {{ order.id }}</li>
+    <li>Add: loop to show all order items in order (total price of each item)</li>
+    <li>Total price of entire order summed up</li>
+</ul>
+
+{% endblock %}
