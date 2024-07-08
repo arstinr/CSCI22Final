@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Customer, Address, Food, Order, OrderItem
-from .forms import AddCustomerForm, AddAddressForm, AddFoodForm, AddOrderForm, AddOrderItemForm
+from .forms import AddCustomerForm, AddAddressForm, AddFoodForm, AddOrderForm
 
 # Create your views here.
 
@@ -64,7 +64,7 @@ def addaddress(request, customer_id):
     
     context = {'form':form}
     return render(request, 'webkiosk/address_form.html', context)
-
+#widgets = { 'customer': HiddenInput()}
 ##Food
 #View for adding new food records
 def addfood(request):
