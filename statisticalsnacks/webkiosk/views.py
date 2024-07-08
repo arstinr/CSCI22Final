@@ -95,6 +95,8 @@ def editfooddetails(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request,'Food record updated succesfully!')
+            return redirect('webkiosk:food-details',pk)
+
     context = {'form':form,  'actionname': 'Edit Food'}
     return render(request, 'webkiosk/food_form.html', context)
 
