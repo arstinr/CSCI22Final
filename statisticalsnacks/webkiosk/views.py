@@ -169,6 +169,19 @@ def listorderdetails(request, pk):
 # must be able to add multiple order items to a single order & specify qty for each item
 # user must be able to delete existing items from an order
 # when viewing details of order, should list all order items from an order
+def addorderitem(request, order_id):
+    if request.method == 'GET':
+        order = get_object_or_404(Order, id=order_id)
+        form = AddOrderItemForm(initial={'order': order})
+    elif request.method == 'POST':
+        form = AddOrderItemForm(request.POST)
+        if form.is_valid():
+            form.save()
+            #return redirect('webkiosk:order-details',pk=order_id) 
+    
+    context = {'form':form}
+    return render(request, 'webkiosk/orderitem_form.html', context)
+
 
 ##View all orders
 #Create page that lists all order records in db
