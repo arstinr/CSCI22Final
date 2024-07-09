@@ -130,8 +130,8 @@ def addorder(request):
     elif request.method == 'POST':
         aof = AddOrderForm(request.POST)
         if aof.is_valid():
-            aof.save()
-            return redirect('webkiosk:add-order')
+            order = aof.save()
+            return redirect('webkiosk:orderitem-add', pk=order.id)
     
     context = {'form': aof, 'actionname': 'Add Order'}
     return render(request, 'webkiosk/order_form.html', context)
@@ -144,8 +144,8 @@ def addordertocustomer(request, customer_id):
     elif request.method == 'POST':
         form = AddOrderForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('webkiosk:order-details',pk=customer_id)
+            order = form.save()
+            return redirect('webkiosk:orderitem-add', pk=order.id)
     
     context = {'form':form, 'actionname': 'Add Order to Customer'}
     return render(request, 'webkiosk/order_form.html', context)
@@ -169,15 +169,15 @@ def listorderdetails(request, pk):
 # must be able to add multiple order items to a single order & specify qty for each item
 # user must be able to delete existing items from an order
 # when viewing details of order, should list all order items from an order
-def addorderitem(request, order_id):
+def addorderitem(request, pk):
     if request.method == 'GET':
-        order = get_object_or_404(Order, id=order_id)
+        order = get_object_or_404(Order, id=pk)
         form = AddOrderItemForm(initial={'order': order})
     elif request.method == 'POST':
         form = AddOrderItemForm(request.POST)
         if form.is_valid():
             form.save()
-            #return redirect('webkiosk:order-details',pk=order_id)
+            return redirect('webkiosk:orderitem-add',pk)
             #redirect to order saved page(?) with back button
     
     context = {'form':form}
