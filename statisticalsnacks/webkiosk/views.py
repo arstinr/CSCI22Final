@@ -159,6 +159,20 @@ def listorderdetails(request, pk):
     return render(request, 'webkiosk/order_detail.html', context)
 
 #View for editing details of an order
+def editorderdetails(request, pk):
+    order = get_object_or_404(Order, id=pk)
+    if request.method == 'GET':
+        form = AddOrderForm(instance=order)
+    elif request.method == 'POST':
+        form = AddOrderForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Order record updated succesfully!')
+            return redirect('webkiosk:order-details',pk)
+
+    context = {'form':form,  'actionname': 'Edit Order'}
+    return render(request, 'webkiosk/order_form.html', context)
+
 #View for deleting order
 
 
