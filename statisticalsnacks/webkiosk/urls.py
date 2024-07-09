@@ -20,6 +20,7 @@ urlpatterns = [
 
     path('customer/<int:customer_id>/order/new/', views.addordertocustomer, name='order-add-customer'),
     path('order/new/', views.addorder, name='order-add'),
+    path('orders/', views.listorders, name='order-list'),
     path('order/<int:pk>/', views.listorderdetails, name='order-details'),
     path('order/<int:pk>/edit/', views.editorderdetails, name='order-edit'),
     path('order/<int:pk>/delete/', views.deleteorder, name="order-delete"),
