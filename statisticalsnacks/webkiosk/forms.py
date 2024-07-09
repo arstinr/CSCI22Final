@@ -1,4 +1,5 @@
-from django.forms import ModelForm, HiddenInput
+from django import forms
+from django.forms import ModelForm, HiddenInput, Select
 from .models import Customer, Address, Food, Order, OrderItem
 
 class AddCustomerForm(ModelForm):
@@ -23,8 +24,14 @@ class AddOrderForm(ModelForm):
         fields = ['paymentmode', 'customer']
 
 class AddOrderItemForm(ModelForm):
+    food = forms.ModelChoiceField(
+        queryset=Food.objects.all(),
+        empty_label="Select Item"
+        label="Food Item"
+        #widget= forms.Select(attrs={'class': 'selectFoodItem'})
+    )
     class Meta:
         model = OrderItem
-        fields = ['quantity',]
+        fields = ['quantity', 'food']
         widgets = {'customer':HiddenInput()}
         

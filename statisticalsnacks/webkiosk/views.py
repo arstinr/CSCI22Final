@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Customer, Address, Food, Order, OrderItem
-from .forms import AddCustomerForm, AddAddressForm, AddFoodForm, AddOrderForm
+from .forms import AddCustomerForm, AddAddressForm, AddFoodForm, AddOrderForm, AddOrderItemForm
 
 # Create your views here.
 
@@ -177,7 +177,8 @@ def addorderitem(request, order_id):
         form = AddOrderItemForm(request.POST)
         if form.is_valid():
             form.save()
-            #return redirect('webkiosk:order-details',pk=order_id) 
+            #return redirect('webkiosk:order-details',pk=order_id)
+            #redirect to order saved page(?) with back button
     
     context = {'form':form}
     return render(request, 'webkiosk/orderitem_form.html', context)
