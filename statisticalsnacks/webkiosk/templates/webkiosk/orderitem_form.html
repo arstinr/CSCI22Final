@@ -1,0 +1,35 @@
+{% extends 'webkiosk/base_template.html' %}
+
+{% block pagetitle %}{{ actionname }} Form{% endblock %}
+
+{% block maincontent %}
+<h2>{{ actionname }} Form</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+
+    {% block %}
+
+    <input type="submit" value="Submit">
+</form>
+
+
+{% if order.orderitem_set.exists %}
+
+<h3>Order Items</h3>
+
+<ul>
+    {% for orderitem in order.orderitem_set.all %}
+        <li>{{ orderitem.qty }} {{ orderitem.food }}</li>
+    {% endfor %}
+</ul>
+
+{% else %}
+
+<p>No Order items found for this customer.</p>\
+
+{% endif %}
+
+
+{% endblock %}
