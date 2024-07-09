@@ -28,4 +28,26 @@
 
 <p><a href="{% url 'webkiosk:address-add' customer.id %}">Add Address</a></p>
 
+{% if customer.order_set.exists %}
+
+<h3>Orders</h3>
+
+<ul>
+    {% for order in customer.order_set.all %}
+        <li>
+            {{ order.id }} {{ order.orderdatetime }}
+            <a href="{% url 'webkiosk:order-details' order.id %}">Details</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+
+<p>No Orders found for this customer.</p>
+
+{% endif %}
+
+<p><a href="{% url 'webkiosk:order-add-customer' customer.id %}">Add Order</a></p>
+
+
 {% endblock %}

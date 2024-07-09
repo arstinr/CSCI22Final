@@ -206,9 +206,7 @@ def addorderitem(request, pk):
 
 
 ##View all orders
-#Create page that lists all order records in db
 # for attributes show only: order id, customer full name, date n time of order
-# each item in list should have links: more info abt record, edit, delete
 
 def listorders(request):
     orderlist = Order.objects.all()
