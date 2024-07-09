@@ -21,5 +21,7 @@ urlpatterns = [
     path('customer/<int:customer_id>/order/new/', views.addordertocustomer, name='order-add-customer'),
     path('order/new/', views.addorder, name='order-add'),
     path('order/<int:pk>/', views.listorderdetails, name='order-details'),
-
+    #edit order
+    #delete order
+    path('order/<int:pk>/items/add/', views.addorderitem, name='orderitem-add'),
 ]
