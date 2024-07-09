@@ -26,9 +26,9 @@ class AddOrderForm(ModelForm):
 class AddOrderItemForm(ModelForm):
     food = forms.ModelChoiceField(
         queryset=Food.objects.all(),
-        empty_label="Select Item"
-        label="Food Item"
-        #widget= forms.Select(attrs={'class': 'selectFoodItem'})
+        empty_label="Select Item",
+        label="Food Item",
+        widget= forms.Select(attrs={'class': 'selectFoodItem'})
     )
     class Meta:
         model = OrderItem
