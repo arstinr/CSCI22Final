@@ -7,9 +7,9 @@
 <ul>
     {% for order in orderlist %}
         <li>#{{order.id}} - {{ customer.firstname}} {{customer.lastname}} | 
-            <a href="{% url 'webkiosk:order-details' customer.id %}">Details</a> | 
-            <a href="{% url 'webkiosk:order-edit' customer.id %}">Edit</a> | 
-            <a href="{% url 'webkiosk:order-delete' customer.id %}">Delete</a>
+            <a href="{% url 'webkiosk:order-details' order.id %}">Details</a> | 
+            <a href="{% url 'webkiosk:order-edit' order.id %}">Edit</a> | 
+            <a href="{% url 'webkiosk:order-delete' order.id %}">Delete</a>
         </li>
     {% endfor %}
 </ul>
