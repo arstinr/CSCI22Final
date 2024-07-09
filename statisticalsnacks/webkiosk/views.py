@@ -102,7 +102,7 @@ def editfooddetails(request, pk):
 
 #View for deleting a food record/ def deletefood
 def deletefood(request, pk):
-    f = get_object_or_404(Customer, id=pk)
+    f = get_object_or_404(Food, id=pk)
     if request.method == 'GET':
         context = { 'food': f}
         return render(request, 'webkiosk/food_delete.html',context)
@@ -174,7 +174,14 @@ def editorderdetails(request, pk):
     return render(request, 'webkiosk/order_form.html', context)
 
 #View for deleting order
-
+def deleteorder(request, pk):
+    o = get_object_or_404(Order, id=pk)
+    if request.method == 'GET':
+        context = { 'order': o}
+        return render(request, 'webkiosk/order_delete.html',context)
+    elif request.method == 'POST':
+        o.delete()
+        return redirect('webkiosk:order-list')
 
 
 ##ORDERITEM
