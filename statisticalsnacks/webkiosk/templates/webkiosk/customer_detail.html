@@ -35,7 +35,7 @@
 <ul>
     {% for order in customer.order_set.all %}
         <li>
-            {{ order.id }} {{ order.orderdatetime }}
+            <p>#{{ order.id }} || {{ order.orderdatetime }}</p>
             <a href="{% url 'webkiosk:order-details' order.id %}">Details</a>
         </li>
     {% endfor %}
