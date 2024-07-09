@@ -180,7 +180,7 @@ def addorderitem(request, pk):
             return redirect('webkiosk:orderitem-add',pk)
             #redirect to order saved page(?) with back button
     
-    context = {'form':form}
+    context = {'form':form, 'actionname': 'Add Order Items'}
     return render(request, 'webkiosk/orderitem_form.html', context)
 
 
@@ -188,6 +188,11 @@ def addorderitem(request, pk):
 #Create page that lists all order records in db
 # for attributes show only: order id, customer full name, date n time of order
 # each item in list should have links: more info abt record, edit, delete
+
+def listorders(request):
+    orderlist = Order.objects.all()
+    context = {'orderlist': orderlist}
+    return render(request, "webkiosk/order_list.html", context)
 
 ##Modify customer details to include:
 #   - list of all orders customer has made(order id, date n time)
