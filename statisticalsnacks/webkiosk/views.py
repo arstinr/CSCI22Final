@@ -198,16 +198,19 @@ def addorderitem(request, pk):
         form = AddOrderItemForm(request.POST)
         if form.is_valid():
             form.save()
+            #calculate price(get data)
             return redirect('webkiosk:orderitem-add',pk)
             #redirect to order saved page(?) with back button
     
-    context = {'form':form, 'actionname': 'Add Order Items'}
+    context = {
+        'form':form,
+        'actionname': 'Add Order Items'
+        }
+    
     return render(request, 'webkiosk/orderitem_form.html', context)
 
 
 ##View all orders
-# for attributes show only: order id, customer full name, date n time of order
-
 def listorders(request):
     orderlist = Order.objects.all()
     context = {'orderlist': orderlist}
