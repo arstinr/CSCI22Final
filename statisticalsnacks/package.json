@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "sass --load-path=node_modules webkiosk/static/scss/main.scss webkiosk/static/css/styles.css"
   },
   "keywords": [],
   "author": "",
