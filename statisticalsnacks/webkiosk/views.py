@@ -197,10 +197,16 @@ def addorderitem(request, pk):
     elif request.method == 'POST':
         form = AddOrderItemForm(request.POST)
         if form.is_valid():
-            form.save()
+            order = form.save()
+            item_name = order.food.name
             #calculate price(get data)
-            return redirect('webkiosk:orderitem-add',pk)
+            #return redirect('webkiosk:orderitem-add',pk)
             #redirect to order saved page(?) with back button
+            context = {
+                'form':form,
+                'actionname': 'Add Order Items',
+                'itemname': item_name
+                }
     
     context = {
         'form':form,
@@ -216,7 +222,7 @@ def listorders(request):
     context = {'orderlist': orderlist}
     return render(request, "webkiosk/order_list.html", context)
 
-##Modify customer details to include:
+##Modify customer details to include: DONE
 #   - list of all orders customer has made(order id, date n time)
 #       - should have link to view order details
 #   - each customer details page should have "Add Order" button
