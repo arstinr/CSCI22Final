@@ -1,6 +1,6 @@
 {% extends 'webkiosk/base_template.html' %}
 
-{% block pagetitle %}Customer Form{% endblock %}
+{% block pagetitle %}Customer Form Page title{% endblock %}
 
 {% block maincontent %}
 <h2>{{ actionname }} Form</h2>
@@ -8,7 +8,7 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_ul }}
-    <input class="rounded-3 bgColor-accent-emphasis" type="submit" value="Submit">
+    <input class="rounded-3 color-fg-accent" type="submit" value="Submit">
 </form>
 
 <ul>
