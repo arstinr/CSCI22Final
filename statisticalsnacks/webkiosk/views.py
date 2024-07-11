@@ -197,8 +197,10 @@ def addorderitem(request, pk):
     elif request.method == 'POST':
         form = AddOrderItemForm(request.POST)
         if form.is_valid():
-            order = form.save()
+            # order = form.get DATA
+            #at the end pa : order = form.save(commit=False)
             item_name = order.food.name
+
             #calculate price(get data)
             #return redirect('webkiosk:orderitem-add',pk)
             #redirect to order saved page(?) with back button
