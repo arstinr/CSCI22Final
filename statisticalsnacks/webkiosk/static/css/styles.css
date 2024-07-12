@@ -7116,4 +7116,12 @@
   z-index: 999;
 }
 
+:root {
+  --fontStack-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+body {
+  font-family: var(--fontStack-system);
+}
+
 /*# sourceMappingURL=styles.css.map */
