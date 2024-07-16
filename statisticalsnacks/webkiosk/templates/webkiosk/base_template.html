@@ -15,16 +15,40 @@
             </div>
             <div class="navcontainer p-2 rounded">
                 <div class ="navset">
-                    <div class ="navitem p-2 f4 px-3 mx-1 border rounded-2"><a class="navitema f4" href="{% url 'webkiosk:customer-list' %}">Customers</a></div>
-                    <div class ="navitem p-2 f4 px-3 mx-1 border rounded-2"><a class="navitema" href="{% url 'webkiosk:customer-add' %}">Add Customer</a></div>
+                    <div class ="navitem p-2 f4 px-3 mx-1 border rounded-2">
+                        <a class="navitema f4" href="{% url 'webkiosk:customer-list' %}">
+                            Customers
+                        </a>
+                    </div>
+                    <div class ="navitem p-2 f4 px-3 mx-1 border rounded-2">
+                        <a class="navitema" href="{% url 'webkiosk:customer-add' %}">
+                            Add Customer
+                        </a>
+                    </div>
                 </div>
                 <div class ="navset">
-                    <div class ="navitem p-2 f4 px-3 mx-1  border rounded-2"><a class="navitema" href="{% url 'webkiosk:food-list' %}">Foods</a></div>
-                    <div class ="navitem p-2 f4 px-3 mx-1  border rounded-2"><a class="navitema" href="{% url 'webkiosk:food-add' %}">Add Food</a></div>
+                    <div class ="navitem p-2 f4 px-3 mx-1  border rounded-2">
+                        <a class="navitema" href="{% url 'webkiosk:food-list' %}">
+                            Foods
+                        </a>
+                    </div>
+                    <div class ="navitem p-2 f4 px-3 mx-1  border rounded-2">
+                        <a class="navitema" href="{% url 'webkiosk:food-add' %}">
+                            Add Food
+                        </a>
+                    </div>
                 </div>
                 <div class ="navset">
-                    <div class ="navitem p-2 f4 px-3 mx-1  border rounded-2"><a class="navitema" href="{% url 'webkiosk:order-list' %}">Orders</a></div>
-                    <div class ="navitem p-2 f4 px-3 mx-1  border rounded-2"><a class="navitema" href="{% url 'webkiosk:order-add' %}">Add Order</a></div>
+                    <div class ="navitem">
+                        <a class="navitema p-2 f4 px-3 mx-1  border rounded-2" href="{% url 'webkiosk:order-list' %}">
+                            Orders
+                        </a>
+                    </div>
+                    <div class ="navitem p-2 f4 px-3 mx-1  border rounded-2">
+                        <a class="navitema" href="{% url 'webkiosk:order-add' %}">
+                            Add Order
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

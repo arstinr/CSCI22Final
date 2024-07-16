@@ -6,7 +6,7 @@
 <div class="customerdetailsblock">
     <div class="customerdetailsheader">
         <h2> Customer Details</h2>
-        <ul>
+        <ul class="list-style-none">
             <li>Name: {{customer.firstname}} {{customer.lastname}}</li>
             <li>Date Joined: {{ customer.date_joined }}</li>
         </ul>
@@ -20,7 +20,7 @@
                     <h3>Addresses</h3>
                     <p><a href="{% url 'webkiosk:address-add' customer.id %}">Add Address</a></p>
                 </div>
-                <ul>
+                <ul class="list-style-none">
                     {% for address in customer.address_set.all %}
                         <li>{{ address.street }} {{ address.city }}</li>
                     {% endfor %}
@@ -40,7 +40,7 @@
                     <h3>Orders</h3>
                     <p><a href="{% url 'webkiosk:order-add-customer' customer.id %}">Add Order</a></p> 
                 </div>
-                    <ul>
+                    <ul class="list-style-none">
                     {% for order in customer.order_set.all %}
                         <li>
                             <p>#{{ order.id }} || {{ order.orderdatetime }}</p>

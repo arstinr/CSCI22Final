@@ -4,7 +4,7 @@
 
 {% block maincontent %}
 <h2>Foods</h2>
-<ul>
+<ul class="list-style-none">
     {% for food in foodlist %}
         <li>{{ food.name}}: Php {{food.price}}
             <a href="{% url 'webkiosk:food-details' food.id %}">More Info</a> | 

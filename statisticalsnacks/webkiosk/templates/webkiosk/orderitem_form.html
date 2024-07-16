@@ -17,7 +17,7 @@
 
 <h3>Order Items</h3>
 
-<ul>
+<ul class="list-style-none">
     {% for orderitem in order.orderitem_set.all %}
         <li>{{ orderitem.qty }} | {{ orderitem.food }}</li>
     {% endfor %}

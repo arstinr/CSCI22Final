@@ -10,6 +10,7 @@ a {
   color: #1f6feb;
 }
 
+
 .topsection {
   top: 0;
   background-color: #0d1116 ;
@@ -22,8 +23,8 @@ a {
   display: flex;
   justify-content: space-around;
   max-width: 60%;
-  border-radius: 12px;
   margin-bottom: 0;
+  border-color: transparent;
 }
 
 .bodyblock{
@@ -76,14 +77,32 @@ a.navitema{
   border-radius: 8px;
   padding: 12px;
   margin: 12px;
-  min-width: 300px;
-  width: 55%;
+  width: 60%;
 }
 
 .cditemheader{
   display: flex;
   justify-content: space-between;
 }
+
+.customerblock {
+
+}
+.customerlistcards{
+  border: 1px #30363d solid;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.customerlinkscontainer{
+  display: flex;
+  flex-direction: column;
+}
+
 /* Fade in an element */
 .anim-fade-in {
   animation-name: fade-in;

@@ -4,7 +4,7 @@
 
 {% block maincontent %}
 <h2>Orders</h2>
-<ul>
+<ul class="list-style-none">
     {% for order in orderlist %}
         <li>#{{order.id}} - {{ order.customer.firstname}} {{order.customer.lastname}} | 
             <a href="{% url 'webkiosk:order-details' order.id %}">Details</a> | 
