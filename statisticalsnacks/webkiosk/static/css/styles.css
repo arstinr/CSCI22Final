@@ -66,8 +66,6 @@ a.navitema{
   overflow: auto;
 }
 
-.customerdetailsheader{
-}
 .customerdetailsbody {
   flex-direction: row;
   display: flex;
