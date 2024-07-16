@@ -8,21 +8,25 @@
     </header>
 
     <body>
-        <h1 class="f1 text-normal pullquote">Statistical Snacks Webkiosk</h1>
-        <p class="pullquote">yummy yummy</p>
+        <div class="topsection">
+            <div class="">
+                <h1 class="anim-hover-grow">GyattHub</h1>
+                <p class="">like Github, but better.</p>
+            </div>
 
-        <div class="border d-flex flex-justify-around">
-            <div class ="navitem">
-                <div><a href="{% url 'webkiosk:customer-list' %}">Customers</a></div>
-                <div><a href="{% url 'webkiosk:customer-add' %}">Add Customer</a></div>
-            </div>
-            <div>
-                <div><a href="{% url 'webkiosk:food-list' %}">Foods</a></div>
-                <div><a href="{% url 'webkiosk:food-add' %}">Add Food</a></div>
-            </div>
-            <div>
-                <div><a href="{% url 'webkiosk:order-list' %}">Orders</a></div>
-                <div><a href="{% url 'webkiosk:order-add' %}">Add Order</a></div>
+            <div class="navcontainer p-2 rounded mb-4">
+                <div class ="navset">
+                    <div class ="navitem anim-hover-grow"><a href="{% url 'webkiosk:customer-list' %}">Customers</a></div>
+                    <div class ="navitem anim-hover-grow"><a href="{% url 'webkiosk:customer-add' %}">Add Customer</a></div>
+                </div>
+                <div class ="navset">
+                    <div class ="navitem anim-hover-grow"><a href="{% url 'webkiosk:food-list' %}">Foods</a></div>
+                    <div class ="navitem anim-hover-grow"><a href="{% url 'webkiosk:food-add' %}">Add Food</a></div>
+                </div>
+                <div class ="navset">
+                    <div class ="navitem anim-hover-grow"><a href="{% url 'webkiosk:order-list' %}">Orders</a></div>
+                    <div class ="navitem anim-hover-grow"><a href="{% url 'webkiosk:order-add' %}">Add Order</a></div>
+                </div>
             </div>
         </div>
         

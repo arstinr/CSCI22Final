@@ -1,3 +1,52 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: white;
+  background-color: #161b22;
+}
+
+a {
+  color: #1f6feb;
+}
+
+.topsection {
+  position: fixed;
+  top: 0;
+  background-color: #0d1116 ;
+  min-width: 100%;
+  border-bottom: 1px solid #30363d;
+}
+
+.navcontainer {
+  display: flex;
+  justify-content: space-around;
+  min-width: 500px;
+  max-width: 75%;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  background-color: #3ad353;
+
+}
+
+.navset {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted blue;
+  padding: 8px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.navitem {
+  border: 1px gray dotted;
+  padding: 4px;
+}
+
+
 /* Fade in an element */
 .anim-fade-in {
   animation-name: fade-in;
