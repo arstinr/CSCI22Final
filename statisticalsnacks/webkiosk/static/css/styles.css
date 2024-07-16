@@ -21,7 +21,6 @@ a {
 .navcontainer {
   display: flex;
   justify-content: space-around;
-  border: 1px dotted #3ad353;
   max-width: 60%;
   border-radius: 12px;
   margin-bottom: 0;
@@ -45,14 +44,13 @@ a {
 }
 
 .navitem {
-  border: 1px gray solid;
-  padding: 4px;
+  padding: 8px 8px;
   border-radius: 8px;
+  margin: 0px 4px;
+  font-size: 16px;
 }
 .navitem:hover {
-  border: 1px #30363d solid;
-  padding: 4px;
-  background-color: #161b22;
+  background-color: #30363d;
 }
 a.navitema{
   text-decoration: none !important;
