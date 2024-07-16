@@ -123,15 +123,17 @@ def listfood(request):
 #-------------------------------------------------------------------------#
 
 ##ORDER
-#View for adding new Order
+#View for adding new Order and order item
 def addorder(request):
     if request.method == 'GET':
         aof = AddOrderForm()
+
     elif request.method == 'POST':
         aof = AddOrderForm(request.POST)
         if aof.is_valid():
-            order = aof.save()
-            return redirect('webkiosk:orderitem-add', pk=order.id)
+            order = request.POST.get('')
+            #order = aof.save()
+            messages.success(request,'You got order')
     
     context = {'form': aof, 'actionname': 'Add Order'}
     return render(request, 'webkiosk/order_form.html', context)
