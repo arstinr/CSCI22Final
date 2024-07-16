@@ -12,9 +12,9 @@
         <p class="pullquote">yummy yummy</p>
 
         <div class="border d-flex flex-justify-around">
-            <div class ="navitem">
-                <div><a href="{% url 'webkiosk:customer-list' %}">Customers</a></div>
-                <div><a href="{% url 'webkiosk:customer-add' %}">Add Customer</a></div>
+            <div class ="bgColor-success-muted p-2 rounded mb-2">
+                <div class="color-bg-subtle p-2 border rounded-3"><a href="{% url 'webkiosk:customer-list' %}">Customers</a></div>
+                <div style="background-color: var(--color-bg-subtle);" class="p-2 border rounded-3"><a href="{% url 'webkiosk:customer-add' %}">Add Customer</a></div>
             </div>
             <div>
                 <div><a href="{% url 'webkiosk:food-list' %}">Foods</a></div>
