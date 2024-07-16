@@ -1,12 +1,9 @@
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   margin: 0;
   color: white;
   background-color: #161b22;
+  overflow: auto;
 }
 
 a {
@@ -14,39 +11,83 @@ a {
 }
 
 .topsection {
-  position: fixed;
   top: 0;
   background-color: #0d1116 ;
   min-width: 100%;
   border-bottom: 1px solid #30363d;
+  text-align: center;
 }
 
 .navcontainer {
   display: flex;
   justify-content: space-around;
-  min-width: 500px;
-  max-width: 75%;
-  border: 1px solid #30363d;
+  border: 1px dotted #3ad353;
+  max-width: 60%;
   border-radius: 12px;
-  background-color: #3ad353;
+  margin-bottom: 0;
+}
 
+.bodyblock{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .navset {
   display: flex;
-  flex-direction: column;
-  border: 1px dotted blue;
+  justify-content: space-around;
+  flex-direction: row;
   padding: 8px;
   padding-top: 0px;
   padding-bottom: 0px;
+  min-width: none;
 }
 
 .navitem {
-  border: 1px gray dotted;
+  border: 1px gray solid;
   padding: 4px;
+  border-radius: 8px;
+}
+.navitem:hover {
+  border: 1px #30363d solid;
+  padding: 4px;
+  background-color: #161b22;
+}
+a.navitema{
+  text-decoration: none !important;
+  color: white;
 }
 
+.customerdetailsblock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
 
+.customerdetailsheader{
+}
+.customerdetailsbody {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.customerdetailscard {
+  background-color: transparent;
+  border: 1px #30363d solid;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px;
+  min-width: 300px;
+  width: 55%;
+}
+
+.cditemheader{
+  display: flex;
+  justify-content: space-between;
+}
 /* Fade in an element */
 .anim-fade-in {
   animation-name: fade-in;
