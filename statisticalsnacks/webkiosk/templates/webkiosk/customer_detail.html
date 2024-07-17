@@ -14,12 +14,13 @@
 
     <div class="customerdetailsbody">
         <div class="customerdetailscard">
-            {% if customer.address_set.exists %}
+
             <div>
                 <div class="cditemheader">
                     <h3>Addresses</h3>
                     <p><a href="{% url 'webkiosk:address-add' customer.id %}">Add Address</a></p>
                 </div>
+                {% if customer.address_set.exists %}
                 <ul class="list-style-none">
                     {% for address in customer.address_set.all %}
                         <li>{{ address.street }} {{ address.city }}</li>
@@ -33,13 +34,14 @@
             {% endif %}
         </div>
 
-        {% if customer.order_set.exists %}
+
         <div class="customerdetailscard">
             <div>
                 <div class="cditemheader">
                     <h3>Orders</h3>
                     <p><a href="{% url 'webkiosk:order-add-customer' customer.id %}">Add Order</a></p> 
                 </div>
+                {% if customer.order_set.exists %}
                     <ul class="list-style-none">
                     {% for order in customer.order_set.all %}
                         <li>
